@@ -1,0 +1,119 @@
+{
+  "contractName": "IPancakeMigrator",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/luandt/pancake-swap-periphery/contracts/interfaces/IPancakeMigrator.sol\":\"IPancakeMigrator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/luandt/pancake-swap-periphery/contracts/interfaces/IPancakeMigrator.sol\":{\"keccak256\":\"0x1d2a963a5d87e8579cc11ae01db6482ee170346d0ef74ba824740860c0211914\",\"urls\":[\"bzz-raw://369dc475f15fb319a64cf98a2cc2bea01441d133e0390962077f10733b7ba258\",\"dweb:/ipfs/QmQnLqZ4f6nVVFdCKbp9LXUKQhxAFUitggatpbXEsvTUYz\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity >=0.5.0;\n\ninterface IPancakeMigrator {\n    // function migrate(address token, uint amountTokenMin, uint amountETHMin, address to, uint deadline) external;\n}\n",
+  "sourcePath": "/home/luandt/pancake-swap-periphery/contracts/interfaces/IPancakeMigrator.sol",
+  "ast": {
+    "absolutePath": "/home/luandt/pancake-swap-periphery/contracts/interfaces/IPancakeMigrator.sol",
+    "exportedSymbols": {
+      "IPancakeMigrator": [
+        2274
+      ]
+    },
+    "id": 2275,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2273,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2274,
+        "linearizedBaseContracts": [
+          2274
+        ],
+        "name": "IPancakeMigrator",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 2275,
+        "src": "26:146:5"
+      }
+    ],
+    "src": "0:173:5"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/luandt/pancake-swap-periphery/contracts/interfaces/IPancakeMigrator.sol",
+      "exportedSymbols": {
+        "IPancakeMigrator": [
+          2274
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 2273,
+        "name": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2274
+          ],
+          "name": "IPancakeMigrator",
+          "nodes": [
+            null
+          ],
+          "scope": 2275
+        },
+        "id": 2274,
+        "name": "ContractDefinition",
+        "src": "26:146:5"
+      }
+    ],
+    "id": 2275,
+    "name": "SourceUnit",
+    "src": "0:173:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-06-21T04:03:47.914Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,8 +1,8 @@
 pragma solidity =0.6.6;
 
-import '@uniswap/v2-core/contracts/interfaces/IPancakeFactory.sol';
+// import '@uniswap/v2-core/contracts/interfaces/IPancakeFactory.sol';
 import '@uniswap/lib/contracts/libraries/TransferHelper.sol';
-
+import './interfaces/IPancakeFactory.sol';
 import './interfaces/IPancakeRouter02.sol';
 import './libraries/PancakeLibrary.sol';
 import './libraries/SafeMath.sol';
@@ -36,11 +36,12 @@ contract PancakeRouter is IPancakeRouter02 {
         uint amountADesired,
         uint amountBDesired,
         uint amountAMin,
-        uint amountBMin
+        uint amountBMin,
+        uint startingSwapTime
     ) internal virtual returns (uint amountA, uint amountB) {
         // create the pair if it doesn't exist yet
         if (IPancakeFactory(factory).getPair(tokenA, tokenB) == address(0)) {
-            IPancakeFactory(factory).createPair(tokenA, tokenB);
+            IPancakeFactory(factory).createPair(tokenA, tokenB, startingSwapTime);
         }
         (uint reserveA, uint reserveB) = PancakeLibrary.getReserves(factory, tokenA, tokenB);
         if (reserveA == 0 && reserveB == 0) {
@@ -66,9 +67,10 @@ contract PancakeRouter is IPancakeRouter02 {
         uint amountAMin,
         uint amountBMin,
         address to,
-        uint deadline
+        uint deadline,
+        uint startingSwapTime
     ) external virtual override ensure(deadline) returns (uint amountA, uint amountB, uint liquidity) {
-        (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin);
+        (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin, startingSwapTime);
         address pair = PancakeLibrary.pairFor(factory, tokenA, tokenB);
         TransferHelper.safeTransferFrom(tokenA, msg.sender, pair, amountA);
         TransferHelper.safeTransferFrom(tokenB, msg.sender, pair, amountB);
@@ -80,7 +82,8 @@ contract PancakeRouter is IPancakeRouter02 {
         uint amountTokenMin,
         uint amountETHMin,
         address to,
-        uint deadline
+        uint deadline,
+        uint startingSwapTime
     ) external virtual override payable ensure(deadline) returns (uint amountToken, uint amountETH, uint liquidity) {
         (amountToken, amountETH) = _addLiquidity(
             token,
@@ -88,7 +91,8 @@ contract PancakeRouter is IPancakeRouter02 {
             amountTokenDesired,
             msg.value,
             amountTokenMin,
-            amountETHMin
+            amountETHMin,
+            startingSwapTime
         );
         address pair = PancakeLibrary.pairFor(factory, token, WETH);
         TransferHelper.safeTransferFrom(token, msg.sender, pair, amountToken);

@@ -21,7 +21,7 @@ library AlitaLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66' // init code hash
+                hex'f3b91f36f7d2b585850bf25f000fd87a1d1f9b1b30f707e253e74eb608d35bd8' // init code hash
             ))));
     }
 
